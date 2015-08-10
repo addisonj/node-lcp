@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Compute the Longest Common Prefix from some strings",
   "main": "index.js",
+  "repository": "git://github.com/addisonj/node-lcp.git",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "lib": "lib"
   },
   "scripts": {
     "test": "mocha test/*Test.js"
@@ -13,6 +15,10 @@
     "LCP",
     "trie"
   ],
-  "author": "",
+  "author": {
+    "name": "Addison Higham",
+    "email": "",
+    "url": "https://github.com/addisonj"
+  },
   "license": "MIT"
 }
