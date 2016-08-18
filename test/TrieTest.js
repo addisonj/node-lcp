@@ -92,7 +92,7 @@ describe('Trie', function() {
     })
 
     it('has a bug', function() {
-      assert.equal(Trie.findLCP(['a', 'ab', 'abc' ] ), 'a')
+      assert.equal(Trie.findLCP(['a', 'ab', 'abc' ] ), 'a') // actual result is 'abc'
     })
   })
 
