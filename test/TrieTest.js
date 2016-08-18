@@ -14,15 +14,21 @@ describe('Trie', function() {
       f: {
         o: {
           o: {
-            l: {},
+            l: {
+              end: true
+            },
             b: {
               a: {
-                r: {}
+                r: {
+                  end: true
+                }
               }
             }
           },
           a: {
-            m: {}
+            m: {
+              end: true
+            }
           }
         }
       }
@@ -36,21 +42,29 @@ describe('Trie', function() {
         f: {
           o: {
             o: {
-              l: {},
+              l: {
+                end: true
+              },
               b: {
                 a: {
-                  r: {}
+                  r: {
+                    end: true
+                  }
                 }
               }
             },
             a: {
-              m: {}
+              m: {
+                end: true
+              }
             }
           },
         },
         s: {
           a: {
-            y: {}
+            y: {
+              end: true
+            }
           }
         }
       })
@@ -73,6 +87,14 @@ describe('Trie', function() {
       var t = new Trie(['repeat', 'repeat'])
       assert.equal(t.lcp(), 'repeat')
     })
+    it('should work with a linear trie', function() {
+      var t = new Trie(['ab', 'abc', 'abcd'])
+      assert.equal(t.lcp(), 'ab')
+    })
+    it('should work with a shorter linear trie', function() {
+      var t = new Trie(['a', 'ab', 'abc'])
+      assert.equal(t.lcp(), 'a')
+    })
     it('more complex examples and lots of words', function() {
       var t = new Trie()
       for (var i = 100; i < 199; i++) {
@@ -89,10 +111,6 @@ describe('Trie', function() {
   describe('findLCP', function() {
     it('should work with the single convience method', function() {
       assert.equal(Trie.findLCP(['interstate', 'intersteller', 'internet']), 'inter')
-    })
-
-    it('has a bug', function() {
-      assert.equal(Trie.findLCP(['a', 'ab', 'abc' ] ), 'a') // actual result is 'abc'
     })
   })
 
