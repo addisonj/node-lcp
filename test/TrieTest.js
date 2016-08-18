@@ -90,6 +90,10 @@ describe('Trie', function() {
     it('should work with the single convience method', function() {
       assert.equal(Trie.findLCP(['interstate', 'intersteller', 'internet']), 'inter')
     })
+
+    it('has a bug', function() {
+      assert.equal(Trie.findLCP(['a', 'ab', 'abc' ] ), 'a')
+    })
   })
 
 })
