@@ -14,15 +14,21 @@ describe('Trie', function() {
       f: {
         o: {
           o: {
-            l: {},
+            l: {
+              end: true
+            },
             b: {
               a: {
-                r: {}
+                r: {
+                  end: true
+                }
               }
             }
           },
           a: {
-            m: {}
+            m: {
+              end: true
+            }
           }
         }
       }
@@ -36,21 +42,29 @@ describe('Trie', function() {
         f: {
           o: {
             o: {
-              l: {},
+              l: {
+                end: true
+              },
               b: {
                 a: {
-                  r: {}
+                  r: {
+                    end: true
+                  }
                 }
               }
             },
             a: {
-              m: {}
+              m: {
+                end: true
+              }
             }
           },
         },
         s: {
           a: {
-            y: {}
+            y: {
+              end: true
+            }
           }
         }
       })
@@ -72,6 +86,14 @@ describe('Trie', function() {
     it('should work with duplicates', function() {
       var t = new Trie(['repeat', 'repeat'])
       assert.equal(t.lcp(), 'repeat')
+    })
+    it('should work with a linear trie', function() {
+      var t = new Trie(['ab', 'abc', 'abcd'])
+      assert.equal(t.lcp(), 'ab')
+    })
+    it('should work with a shorter linear trie', function() {
+      var t = new Trie(['a', 'ab', 'abc'])
+      assert.equal(t.lcp(), 'a')
     })
     it('more complex examples and lots of words', function() {
       var t = new Trie()
